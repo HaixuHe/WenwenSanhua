@@ -51,6 +51,7 @@ if point_path is not None:
     if process_button:
         wb = load_workbook(filename=point_path, read_only=True)
         # print()
+        # ws = wb.worksheets[0]
         ws = wb['工作表1']
         pattern = r'(?<![A-Za-z])\d{8,}'
 
