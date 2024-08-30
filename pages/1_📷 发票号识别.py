@@ -16,13 +16,14 @@ def extract_numbers(text):
         if len(number) >= 8:
             if number[:4] != '2024' and number[:4] != '2023':
                 filtered += str(number)
-                filtered += '; '
+                filtered += '/ '
                 filtered_numbers.append(number)
-    # 在税号末尾添加分号
-    # if len(filtered_numbers) == 1:
-    #     filtered = filtered[:-2]
-    return str(filtered)
 
+    filtered = filtered[:-2]
+    if len(filtered) != 0:
+        return str(filtered) + ';'
+    else:
+        return str(filtered)
 
 
 st.set_page_config(layout="wide")
@@ -43,9 +44,6 @@ point_path = st.file_uploader(
     "请选择需要加载Excel文件 👇",
     type=["XLSX", "XLS"],
 )
-
-
-
 
 print(point_path)
 if point_path is not None:
@@ -84,4 +82,3 @@ if point_path is not None:
         st.success('识别成功!', icon="✅")
         # df.to_excel('一般进项税-发票号导出.xlsx', index=False)
         # print(df)
-
