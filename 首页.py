@@ -18,8 +18,9 @@ def extract_numbers(text):
                 filtered += str(number)
                 filtered += '; '
                 filtered_numbers.append(number)
-    if len(filtered_numbers) == 1:
-        filtered = filtered[:-2]
+    # 在税号末尾添加分号
+    # if len(filtered_numbers) == 1:
+    #     filtered = filtered[:-2]
     return str(filtered)
 
 
