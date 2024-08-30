@@ -16,12 +16,14 @@ def extract_numbers(text):
         if len(number) >= 8:
             if number[:4] != '2024' and number[:4] != '2023':
                 filtered += str(number)
-                filtered += '; '
+                filtered += '/ '
                 filtered_numbers.append(number)
-    # 在税号末尾添加分号
-    # if len(filtered_numbers) == 1:
-    #     filtered = filtered[:-2]
-    return str(filtered)
+
+    filtered = filtered[:-2]
+    if len(filtered) != 0:
+        return str(filtered) + ';'
+    else:
+        return str(filtered)
 
 
 
